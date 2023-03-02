@@ -3,7 +3,6 @@ const app = express();
 const path = require('path');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
-const Joi = require('joi');
 const helmet = require('helmet')
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -51,9 +50,12 @@ const scriptSrcUrls = [
     "https://cdnjs.cloudflare.com",
     "https://cdn.jsdelivr.net",
     "https://unpkg.com/aos@next/dist/aos.js",
-    "https://code.jquery.com/jquery-3.6.0.min.js"
+    "https://code.jquery.com/jquery-3.6.0.min.js",
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+
 ];
 const styleSrcUrls = [
+    "https://unpkg.com/aos@next/dist/aos.css",
     "https://kit-free.fontawesome.com",
     "https://stackpath.bootstrapcdn.com",
     "https://fonts.googleapis.com",
