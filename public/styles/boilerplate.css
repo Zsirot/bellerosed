@@ -88,6 +88,10 @@ footer {
    color: rgb(224 215 182) !important
 }
 
+.navbar-expand-lg {
+   padding-right: 9rem;
+}
+
 .navbar-nav>li>a {
    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
