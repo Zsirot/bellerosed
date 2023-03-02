@@ -214,9 +214,9 @@ footer {
 }
 
 @media(max-width: 1205px) {
-   .banner {
+   /* .banner {
       height: 75vh;
-   }
+   } */
 
    .banner-text {
       font-size: 14vw;
