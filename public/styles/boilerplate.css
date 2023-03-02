@@ -76,6 +76,14 @@ footer {
    font-size: 1.75rem;
 }
 
+.bandcamp-icon {
+   font-family: Helvetica Neue, Arial, sans-serif;
+   text-transform: lowercase;
+   display: inline;
+   font-size: 1.6rem;
+   position: absolute;
+}
+
 .nav-link {
    color: rgb(224 215 182) !important
 }

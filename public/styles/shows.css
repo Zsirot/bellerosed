@@ -2,7 +2,7 @@
   background-color: rgba(127, 255, 212, 0.801) !important;
 } */
 
-.background-pic {
+/* .background-pic {
   position: relative;
   background: url('/images/venue.jfif') no-repeat fixed;
   background-position: center bottom;
@@ -10,7 +10,7 @@
 
   width: 100vw;
   min-height: 10vh;
-}
+} */
 
 /* .image-overlay.animate {
   background-color: rgb(129, 36, 45, 0.7)
