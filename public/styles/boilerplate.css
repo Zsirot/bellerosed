@@ -79,9 +79,11 @@ footer {
 .bandcamp-icon {
    font-family: Helvetica Neue, Arial, sans-serif;
    text-transform: lowercase;
-   display: inline;
+   display: flex;
+   align-self: center;
    font-size: 1.6rem;
    position: relative;
+   margin-bottom: 0;
 }
 
 .nav-link {
