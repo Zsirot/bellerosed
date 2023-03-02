@@ -74,6 +74,29 @@ const fontSrcUrls = [
     "https://cdnjs.cloudflare.com",
 ];
 
+const imageSrcUrls = [
+    "https://images.unsplash.com",
+    "https://i.ytimg.com",
+    "https://files.cdn.printful.com",
+    "https://globehall.com"
+]
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [
+            ],
+            connectSrc: ["'self'"],
+            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            childSrc: ["blob:", ...childSrcUrls],
+            objectSrc: [],
+            imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+            fontSrc: ["'self'", ...fontSrcUrls],
+        },
+    })
+);
+
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
