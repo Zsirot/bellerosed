@@ -81,7 +81,7 @@ footer {
    text-transform: lowercase;
    display: inline;
    font-size: 1.6rem;
-   position: absolute;
+   position: relative;
 }
 
 .nav-link {

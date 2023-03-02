@@ -74,6 +74,18 @@ h1 a:hover {
     }
 }
 
-.home-icons {
-    z-index: 5000 !important;
+.home-icons li {
+    list-style-type: none;
+}
+
+.home-icons>li>a {
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.home-icons>li>a:hover {
+    transform: scale(1.1);
+}
+
+.home-icons>li>a:active {
+    transform: scale(1.2);
 }
