@@ -121,6 +121,9 @@ app.get('/shows', (req, res) => {
 app.get('/music', (req, res) => {
     res.render('music')
 })
+app.get('/about', (req, res) => {
+    res.render('about')
+})
 
 
 app.all('*', (req, res, next) => {
