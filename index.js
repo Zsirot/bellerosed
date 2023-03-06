@@ -52,7 +52,7 @@ const scriptSrcUrls = [
     "https://unpkg.com/aos@next/dist/aos.js",
     "https://code.jquery.com/jquery-3.6.0.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
-    "https://open.spotify.com"
+    "https://open.spotify.com",
 
 ];
 const styleSrcUrls = [
@@ -65,6 +65,7 @@ const styleSrcUrls = [
     "https://cdnjs.cloudflare.com",
     "https://unpkg.com",
     "https://open.spotify.com"
+
 ];
 const childSrcUrls = [
     "https://www.youtube.com",
@@ -89,7 +90,7 @@ app.use(
             defaultSrc: [
             ],
             connectSrc: ["'self'"],
-            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", "frame-src", "script-src-elem", ...scriptSrcUrls],
+            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", "'frame-src'", "'script-src-elem'", ...scriptSrcUrls],
             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
             workerSrc: ["'self'", "blob:"],
             childSrc: ["blob:", "frame-src", ...childSrcUrls],
