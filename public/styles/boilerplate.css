@@ -294,3 +294,11 @@ footer {
    color: whitesmoke;
    position: relative;
 }
+
+.moonshines a {
+   position: relative;
+   z-index: 100;
+   color: rgb(108 117 125) !important;
+   text-decoration: none !important;
+
+}
