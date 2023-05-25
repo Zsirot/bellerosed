@@ -7,7 +7,7 @@ const helmet = require('helmet')
 const session = require('express-session');
 const flash = require('connect-flash');
 const AppError = require('./utils/AppError');
-
+const cookie = require('cookie')
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -51,8 +51,11 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net",
     "https://unpkg.com/aos@next/dist/aos.js",
     "https://code.jquery.com/jquery-3.6.0.min.js",
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+    "https://widget.songkick.com/9881049/widget.js",
+    "https://stackpath.bootstrapcdn.com",
+    "https://widget-app.songkick.com/injector",
+    "https://widget-app.songkick.com",
 ];
 const styleSrcUrls = [
     "https://unpkg.com/aos@next/dist/aos.css",
@@ -66,7 +69,8 @@ const styleSrcUrls = [
 ];
 const childSrcUrls = [
     "https://www.youtube.com",
-    "https://drive.google.com"
+    "https://drive.google.com",
+    "https://widget-app.songkick.com"
 ]
 
 const fontSrcUrls = [
@@ -79,21 +83,48 @@ const imageSrcUrls = [
     "https://i.ytimg.com",
     "https://files.cdn.printful.com",
     "https://globehall.com"
+];
+const frameSrcUrls = [
+    "https://widget-app.songkick.com/injector",
+    "https://widget-app.songkick.com",
 ]
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: [
+//             ],
+//             connectSrc: ["'self'"],
+//             scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//             workerSrc: ["'self'", "blob:"],
+//             childSrc: ["blob:", ...childSrcUrls],
+//             objectSrc: [],
+//             imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+//             fontSrc: ["'self'", ...fontSrcUrls],
+//         },
+//     })
+// );
+
 app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: [
-            ],
-            connectSrc: ["'self'"],
-            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
-            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-            workerSrc: ["'self'", "blob:"],
-            childSrc: ["blob:", ...childSrcUrls],
-            objectSrc: [],
-            imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
-            fontSrc: ["'self'", ...fontSrcUrls],
+    helmet({
+        // crossOriginEmbedderPolicy: { policy: "credentialless" },
+        // crossOriginResourcePolicy: { policy: "cross-origin" },
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: [
+                ],
+                connectSrc: ["'self'"],
+                scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+                styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+                workerSrc: ["'self'", "blob:"],
+                childSrc: ["blob:", ...childSrcUrls],
+                objectSrc: [],
+                imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+                fontSrc: ["'self'", ...fontSrcUrls],
+                frameSrc: ["'self'", ...frameSrcUrls]
+            }
         },
+
     })
 );
 
@@ -110,7 +141,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/shows', (req, res) => {
-    res.render('shows')
+    res.render('shows');
 })
 
 app.get('/music', (req, res) => {
