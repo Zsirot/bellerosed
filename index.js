@@ -51,7 +51,10 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net",
     "https://unpkg.com/aos@next/dist/aos.js",
     "https://code.jquery.com/jquery-3.6.0.min.js",
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+    "https://widget.songkick.com/9881049/widget.js",
+    "https://stackpath.bootstrapcdn.com",
+
 
 ];
 const styleSrcUrls = [
