@@ -54,8 +54,7 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
     "https://widget.songkick.com/9881049/widget.js",
     "https://stackpath.bootstrapcdn.com",
-
-
+    "https://widget-app.songkick.com/injector",
 ];
 const styleSrcUrls = [
     "https://unpkg.com/aos@next/dist/aos.css",
@@ -69,7 +68,8 @@ const styleSrcUrls = [
 ];
 const childSrcUrls = [
     "https://www.youtube.com",
-    "https://drive.google.com"
+    "https://drive.google.com",
+    "https://widget-app.songkick.com"
 ]
 
 const fontSrcUrls = [
@@ -83,20 +83,40 @@ const imageSrcUrls = [
     "https://files.cdn.printful.com",
     "https://globehall.com"
 ]
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: [
+//             ],
+//             connectSrc: ["'self'"],
+//             scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//             workerSrc: ["'self'", "blob:"],
+//             childSrc: ["blob:", ...childSrcUrls],
+//             objectSrc: [],
+//             imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+//             fontSrc: ["'self'", ...fontSrcUrls],
+//         },
+//     })
+// );
 app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: [
-            ],
-            connectSrc: ["'self'"],
-            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
-            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-            workerSrc: ["'self'", "blob:"],
-            childSrc: ["blob:", ...childSrcUrls],
-            objectSrc: [],
-            imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
-            fontSrc: ["'self'", ...fontSrcUrls],
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: [
+                ],
+                connectSrc: ["'self'"],
+                scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+                styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+                workerSrc: ["'self'", "blob:"],
+                childSrc: ["blob:", ...childSrcUrls],
+                objectSrc: [],
+                imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+                fontSrc: ["'self'", ...fontSrcUrls],
+            }
+
         },
+        crossOriginEmbedderPolicy: { policy: "credentialless" }
     })
 );
 
