@@ -52,10 +52,8 @@ const scriptSrcUrls = [
     "https://unpkg.com/aos@next/dist/aos.js",
     "https://code.jquery.com/jquery-3.6.0.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
-    "https://widget.songkick.com/9881049/widget.js",
-    "https://stackpath.bootstrapcdn.com",
-    "https://widget-app.songkick.com/injector",
-    "https://widget-app.songkick.com",
+    "https://open.spotify.com",
+
 ];
 const styleSrcUrls = [
     "https://unpkg.com/aos@next/dist/aos.css",
@@ -65,12 +63,14 @@ const styleSrcUrls = [
     "https://use.fontawesome.com",
     "https://cdn.jsdelivr.net",
     "https://cdnjs.cloudflare.com",
-    "https://unpkg.com"
+    "https://unpkg.com",
+    "https://open.spotify.com"
+
 ];
 const childSrcUrls = [
     "https://www.youtube.com",
     "https://drive.google.com",
-    "https://widget-app.songkick.com"
+    "https://open.spotify.com",
 ]
 
 const fontSrcUrls = [
@@ -106,27 +106,24 @@ const frameSrcUrls = [
 // );
 
 app.use(
-    helmet({
-        // crossOriginEmbedderPolicy: { policy: "credentialless" },
-        // crossOriginResourcePolicy: { policy: "cross-origin" },
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: [
-                ],
-                connectSrc: ["'self'"],
-                scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
-                styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-                workerSrc: ["'self'", "blob:"],
-                childSrc: ["blob:", ...childSrcUrls],
-                objectSrc: [],
-                imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
-                fontSrc: ["'self'", ...fontSrcUrls],
-                frameSrc: ["'self'", ...frameSrcUrls]
-            }
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [
+            ],
+            connectSrc: ["'self'"],
+            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", "'frame-src'", "'script-src-elem'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            childSrc: ["blob:", "frame-src", ...childSrcUrls],
+            objectSrc: [],
+            imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+            fontSrc: ["'self'", ...fontSrcUrls],
         },
 
     })
 );
+app.use(helmet({ crossOriginResourcePolicy: { policy: "same-site" } }));
+
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');
@@ -146,6 +143,9 @@ app.get('/shows', (req, res) => {
 
 app.get('/music', (req, res) => {
     res.render('music')
+})
+app.get('/about', (req, res) => {
+    res.render('about')
 })
 
 
