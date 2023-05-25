@@ -25,8 +25,8 @@ const sessionOptions = {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        secure: true,
-        sameSite: 'none'
+        // secure: true,
+        // sameSite: 'none'
     }
 }
 
@@ -107,8 +107,8 @@ const frameSrcUrls = [
 
 app.use(
     helmet({
-        crossOriginEmbedderPolicy: { policy: "credentialless" },
-        crossOriginResourcePolicy: { policy: "cross-origin" },
+        // crossOriginEmbedderPolicy: { policy: "credentialless" },
+        // crossOriginResourcePolicy: { policy: "cross-origin" },
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: [
