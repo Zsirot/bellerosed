@@ -7,7 +7,7 @@ const helmet = require('helmet')
 const session = require('express-session');
 const flash = require('connect-flash');
 const AppError = require('./utils/AppError');
-
+const cookie = require('cookie')
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -25,8 +25,8 @@ const sessionOptions = {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        // secure: true,
-        // sameSite: 'none'
+        secure: true,
+        sameSite: 'none'
     }
 }
 
@@ -55,6 +55,7 @@ const scriptSrcUrls = [
     "https://widget.songkick.com/9881049/widget.js",
     "https://stackpath.bootstrapcdn.com",
     "https://widget-app.songkick.com/injector",
+    "https://widget-app.songkick.com",
 ];
 const styleSrcUrls = [
     "https://unpkg.com/aos@next/dist/aos.css",
@@ -82,6 +83,10 @@ const imageSrcUrls = [
     "https://i.ytimg.com",
     "https://files.cdn.printful.com",
     "https://globehall.com"
+];
+const frameSrcUrls = [
+    "https://widget-app.songkick.com/injector",
+    "https://widget-app.songkick.com",
 ]
 // app.use(
 //     helmet.contentSecurityPolicy({
@@ -99,8 +104,11 @@ const imageSrcUrls = [
 //         },
 //     })
 // );
+
 app.use(
     helmet({
+        crossOriginEmbedderPolicy: { policy: "credentialless" },
+        crossOriginResourcePolicy: { policy: "cross-origin" },
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: [
@@ -113,10 +121,10 @@ app.use(
                 objectSrc: [],
                 imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
                 fontSrc: ["'self'", ...fontSrcUrls],
+                frameSrc: ["'self'", ...frameSrcUrls]
             }
-
         },
-        crossOriginEmbedderPolicy: { policy: "credentialless" }
+
     })
 );
 
@@ -133,7 +141,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/shows', (req, res) => {
-    res.render('shows')
+    res.render('shows');
 })
 
 app.get('/music', (req, res) => {
