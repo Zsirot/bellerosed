@@ -16,21 +16,49 @@ h1 a:hover {
 /* Overlay */
 .background-pic {
     position: relative;
-    background: url('/images/bandpic3.jpg') no-repeat fixed;
+    background: url('/images/tattoo.jpg') no-repeat fixed;
     background-position: center top;
     background-size: cover;
-    min-height: 10vh;
+    min-height: 82vh;
+}
+.background-pic-2 {
+    position: relative;
+    background: url('/images/tattoo-2.jpg') no-repeat fixed;
+    background-position: center top;
+    background-size: cover;
+    min-height: 82vh;
+    animation: fadeInOut 13s cubic-bezier(0, 0, 0.1, 1.0) infinite;
+    /* animation: image 5s ease-in-out infinite; */
 }
 
-.image-overlay.animate {
-    background: rgb(7, 53, 7, 0.56)
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
 }
+/* @keyframes image {
+    100% {
+      opacity: 0;
+    }
+  } */
+
+.image-overlay-2.animate {
+    background: rgb(174 174 174 / 25%)
+}
+  
 
 /* Home page links */
 .cube1 {
-    height: 200px;
-    border-radius: 6%;
     opacity: 0.9;
+    background-color: white;
+    font-size: 14px;
+    line-height: 250%;
+}
+.cube1 p{
+    margin: 10rem;
 }
 
 .cube2 {
@@ -89,3 +117,15 @@ h1 a:hover {
 .home-icons>li>a:active {
     transform: scale(1.2);
 }
+
+/* Dylan */
+
+.artist-image {
+    max-width: 22rem;
+}
+@media (max-width: 768px) {
+    .artist-image {
+        width: 85%;
+    }
+
+     }

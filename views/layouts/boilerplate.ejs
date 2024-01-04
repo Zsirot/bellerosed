@@ -20,20 +20,35 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/boilerplate.css">
 </head>
+<%- include('../partials/header') %>
 
-<body>
+    <body>
+        <div class="background-pic">
+            <div class="background-pic-2">
+                <div class="image-overlay-2"></div>
 
-    <%- include('../partials/navbar') %>
-        <main>
-            <%- include('../partials/flash') %>
-                <%- body %>
-        </main>
-        <%- include('../partials/footer') %>
+            </div>
 
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
-</body>
+        </div>
+        <div class="row justify-content-center d-flex dylanB-container">
+            <div class="dylanB">
+                DYLAN BELLEROSE
+            </div>
+        </div>
+        <%- include('../partials/navbar') %>
+
+            <main>
+                <%- include('../partials/flash') %>
+                    <%- body %>
+            </main>
+            <%- include('../partials/footer') %>
+
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                    crossorigin="anonymous"></script>
+                <script src="/scripts/fixedNav.js"></script>
+    </body>
 
 </html>

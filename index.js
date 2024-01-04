@@ -53,7 +53,15 @@ const scriptSrcUrls = [
     "https://code.jquery.com/jquery-3.6.0.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
     "https://open.spotify.com",
-    "https://widget-app.songkick.com/injector"
+    "https://widget-app.songkick.com/injector",
+    "https://www.instagram.com/embed.js",
+    "https://www.instagram.com/blialcabal/embed",
+    "https://www.instagram.com",
+    "http://www.instagram.com",
+    "https://static.elfsight.com",
+    "https://static.elfsight.com/platform/platform.js",
+    "https://static.elfsight.com/apps/photo-gallery/stable/97f2d2a41ec2f60b04822013e483491f62445eac/app/photoGallery.js"
+    
 
 ];
 const styleSrcUrls = [
@@ -65,46 +73,84 @@ const styleSrcUrls = [
     "https://cdn.jsdelivr.net",
     "https://cdnjs.cloudflare.com",
     "https://unpkg.com",
-    "https://open.spotify.com"
+    "https://open.spotify.com",
+    "https://www.instagram.com",
+    "http://www.instagram.com",
+    "http://www.instagram.com/embed.js",
 
 ];
 const childSrcUrls = [
     "https://www.youtube.com",
     "https://drive.google.com",
     "https://open.spotify.com",
+    "https://www.instagram.com/embed.js",
+    "https://www.instagram.com/",
+    "http://www.instagram.com",
+    "https://www.instagram.com/embed.js",
+    "https://86441960992e48e9a2d5fcd6ff202f5b.elf.site",
+    "https://form.jotform.com/",
+    "https://submit.jotform.com/"
 ]
 
 const fontSrcUrls = [
     "https://fonts.gstatic.com",
     "https://cdnjs.cloudflare.com",
+    "https://www.instagram.com",
+    "http://www.instagram.com",
+    "https://www.instagram.com/embed.js",
 ];
 
 const imageSrcUrls = [
     "https://images.unsplash.com",
     "https://i.ytimg.com",
     "https://files.cdn.printful.com",
-    "https://globehall.com"
+    "https://globehall.com",
+    "https://www.instagram.com",
+    "http://www.instagram.com",
+    "https://www.instagram.com/embed.js",
+    "https://files.elfsight.com",
+    "https://files.elfsightcdn.com",
+    "https://unsplash.it"
 ];
 const frameSrcUrls = [
     "https://widget-app.songkick.com/injector",
     "https://widget-app.songkick.com",
+    "https://www.instagram.com",
+    "http://www.instagram.com"
 ]
+const connectSrcUrls = [
+    "https://core.service.elfsight.com"
+]
+
 app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: [
-            ],
-            connectSrc: ["'self'"],
-            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
-            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-            workerSrc: ["'self'", "blob:"],
-            childSrc: ["blob:", ...childSrcUrls],
-            objectSrc: [],
-            imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
-            fontSrc: ["'self'", ...fontSrcUrls],
-        },
+    helmet({
+      contentSecurityPolicy: { directives: {
+        defaultSrc: [
+        ],
+        connectSrc: ["'self'", ...connectSrcUrls],
+        scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+        styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+        workerSrc: ["'self'", "blob:"],
+        childSrc: ["blob:", ...childSrcUrls],
+        objectSrc: [],
+        imgSrc: [
+            "'self'",
+            "blob:",
+            "data:",
+            "https://images.unsplash.com",
+            "https://i.ytimg.com",
+            ...imageSrcUrls
+        ],
+        fontSrc: ["'self'", ...fontSrcUrls],
+    }  
+      },
+      crossOriginResourcePolicy: { policy: "cross-origin" },
+      crossOriginEmbedderPolicy: false,
     })
-);
+  );
+  
+
+  
 
 // app.use(
 //     helmet.contentSecurityPolicy({
@@ -123,7 +169,8 @@ app.use(
 
 //     })
 // );
-// app.use(helmet({ crossOriginResourcePolicy: { policy: "same-site" } }));
+// app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
+
 
 
 app.use((req, res, next) => {

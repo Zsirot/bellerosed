@@ -1,6 +1,6 @@
 //Makes fixed navbar transparent depending on nav location, animates overlay at the same time
-const overlay = document.querySelector('.image-overlay');
-const nav = document.querySelector('.bg-transparent');
+const overlay = document.querySelector('.image-overlay-2');
+const nav = document.querySelector('.navbar');
 window.addEventListener('scroll', checkBoxes); //on scroll, check window position
 checkBoxes()
 function checkBoxes() {
@@ -14,3 +14,5 @@ function checkBoxes() {
         overlay.classList.remove('animate')
     }
 }
+
+

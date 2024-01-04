@@ -13,10 +13,9 @@
 }
 
 body {
-   font-family: 'Unica One', cursive;
-   text-transform: uppercase;
-   background-image: linear-gradient(to bottom, rgb(0, 0, 0) 60px, rgb(168, 168, 168) 120px, rgb(243, 254, 89));
+   font-family: Arial, sans-serif;
    overflow-x: hidden;
+   background-color: white;
 }
 
 .spacelay {
@@ -35,7 +34,7 @@ h1 {
 }
 
 footer {
-   background-color: rgb(86, 83, 57);
+   background-color: rgb(255, 255, 255);
 }
 
 /* Bootstrap button styles */
@@ -87,7 +86,7 @@ footer {
 }
 
 .nav-link {
-   color: rgb(224 215 182) !important
+   color: rgb(0, 0, 0) !important
 }
 
 /* .navbar-expand-lg {
@@ -106,11 +105,15 @@ footer {
    transform: scale(1.2);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
 
    .navbar-nav>li>a:hover,
    .navbar-nav>li>a:active {
       transform: scale(1);
+   }
+   .navbar {
+      position: fixed;
+      background-color: transparent
    }
 }
 
@@ -181,11 +184,29 @@ footer {
 
 
 /* Overlay and Nav animation */
-.navbar.animate.bg-transparent {
-   background-color: rgba(86, 83, 57, 0.801) !important;
+.navbar.animate {
+   background-color: rgb(255 255 255 / 93%) !important;
+   transition: background-color 0.5s ease-in-out;
+}
+.navbar {
+   background-color: rgb(255, 255, 255) !important;
+   transition: background-color 0.5s ease-in-out;
+}
+.sticky-top {
+   top: -18px
 }
 
 .image-overlay {
+   position: absolute;
+   background: rgba(0, 0, 0, 0);
+   width: 100%;
+   height: 100%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   transition: all 0.5s ease;
+}
+.image-overlay-2 {
    position: absolute;
    background: rgba(0, 0, 0, 0);
    width: 100%;
@@ -302,3 +323,39 @@ footer {
    text-decoration: none !important;
 
 }
+
+
+/* Dylan */
+
+.dylanB-container{
+   display: flex;
+   z-index: 100;
+   min-width: 100%;
+   min-height: 82vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 56px;
+   left: 12px;
+   flex-wrap: wrap;
+}
+
+.dylanB {
+   
+   font-family: 'Unica One', cursive;
+   text-align: center;
+   width: 8em;
+   font-size: 11vw;
+   color: red;
+}
+
+.text-content {
+ width: 50%;
+}
+@media (max-width: 768px) {
+   .text-content {
+       width: 85%;
+   }
+
+    }
