@@ -1,3 +1,7 @@
+:root {
+   --bannersize: 30vh;
+ }
+
 @font-face {
    font-family: barnstormer;
    src: url(/fonts/Barnstormer.ttf);
@@ -7,6 +11,12 @@
    font-family: Universe;
    src: url(/fonts/Universe.ttf);
 }
+@font-face {
+   font-family: Mothproof;
+   src: url(/fonts/Mothproof.ttf);
+}
+
+
 
 * {
    scroll-behavior: auto !important;
@@ -331,7 +341,7 @@ footer {
    display: flex;
    z-index: 100;
    min-width: 100%;
-   min-height: 82vh;
+   min-height: var(--bannersize);
    display: flex;
    justify-content: center;
    align-items: center;
@@ -359,3 +369,48 @@ footer {
    }
 
     }
+
+    .background-pic {
+      position: relative;
+      background: url('/images/tattoo.jpg') no-repeat fixed;
+      background-position: center top;
+      background-size: cover;
+      min-height: var(--bannersize);
+  }
+  .background-pic-2 {
+      position: relative;
+      background: url('/images/tattoo-2.jpg') no-repeat fixed;
+      background-position: center top;
+      background-size: cover;
+      min-height: var(--bannersize);
+      animation: fadeInOut 13s cubic-bezier(0, 0, 0.1, 1.0) infinite;
+      /* animation: image 5s ease-in-out infinite; */
+  }
+  
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+  }
+  /* @keyframes image {
+      100% {
+        opacity: 0;
+      }
+    } */
+  
+  .image-overlay-2.animate {
+      background: rgb(174 174 174 / 25%)
+  }
+
+  .cube1 {
+   opacity: 0.9;
+   background-color: white;
+   font-size: 14px;
+   line-height: 250%;
+}
+.cube1 p{
+   margin: 10rem;
+}
