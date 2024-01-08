@@ -1,5 +1,12 @@
 :root {
-   --bannersize: 82vh;
+   --bannersize: 90vh;
+ }
+
+ @media (max-width:768px) {
+    :root {
+        --bannersize: 100vh;
+      }
+
  }
 /* Home Page links */
 h1 a {
@@ -21,23 +28,6 @@ h1 a:hover {
 /* Home page links */
 
 
-.cube2 {
-    height: 200px;
-    border-radius: 6%;
-    opacity: 0.9;
-}
-
-.cube3 {
-    height: 200px;
-    border-radius: 6%;
-    opacity: 0.9;
-}
-
-.cube4 {
-    height: 200px;
-    border-radius: 6%;
-    opacity: 0.9;
-}
 
 
 .photo-text {
@@ -89,3 +79,26 @@ h1 a:hover {
     }
 
      }
+     
+     
+.oath {
+   transform: translateY(10px);
+   background-color: #000000;
+   border-radius: 23%;
+   margin-left: 3%;
+   width: 111px;
+}
+
+.oathaddress {
+    display: flex;
+    flex-direction: column;
+    min-width: 208px;
+    font-size: 11pt;
+    margin-top: 25px;
+}
+.background-pic {
+    display: block!important;
+}
+.emblem {
+    display: block!important;
+}

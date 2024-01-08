@@ -15,8 +15,18 @@
    font-family: Mothproof;
    src: url(/fonts/Mothproof.ttf);
 }
-
-
+@font-face {
+   font-family: Empirecrown;
+   src: url(/fonts/empirecrown.ttf);
+}
+@font-face {
+   font-family: eskindar;
+   src: url(/fonts/eskindarexpand.ttf);
+}
+@font-face {
+   font-family: Eordeoghlakat;
+   src: url(/fonts/Eordeoghlakat.ttf);
+}
 
 * {
    scroll-behavior: auto !important;
@@ -28,17 +38,9 @@ body {
    background-color: white;
 }
 
-.spacelay {
-   position: fixed;
-   width: 100vw;
-   height: 100vh;
-   background-image: url('/images/space.avif');
-   opacity: 0.2;
-}
-
 h1 {
    text-align: center;
-   font-family: 'Righteous', cursive;
+   font-family: 'Universe';
    font-size: larger;
    font-size: 50px;
 }
@@ -47,62 +49,32 @@ footer {
    background-color: rgb(255, 255, 255);
 }
 
-/* Bootstrap button styles */
-.btn-primary {
-   color: rgb(107, 214, 0);
-   background-color: rgb(0, 0, 0, 0);
-   border-color: rgb(107, 214, 0);
+.footer-link a{
+   font-family: 'Eordeoghlakat';
+   font-size: 1.75rem;
+   color:rgb(137 35 35)!important;
+   text-decoration: none;
 }
 
-.btn-primary:hover {
-   background-color: rgb(107, 214, 0);
-   border-color: rgb(107, 214, 0);
-}
-
-.btn-primary:focus {
-   background-color: rgb(107, 214, 0);
-   border-color: rgb(107, 214, 0);
-   box-shadow: 0 0 0 0.25rem rgb(107, 214, 0, 0.5);
-}
-
-/* Hero Logo */
-.logobox {
-   display: flex;
-   justify-content: center;
-}
-
-.logo {
-   max-width: 70vw;
-}
-
-/* Navbar */
+/* Dynamic Navbar */
 .navbar-toggler:focus {
    box-shadow: none;
 }
+@media (min-width:768px) {
+   .close-nav {
+      display: none!important;
+   }
+   
+}
 
 .nav-item {
-   font-family: 'Unica One', cursive;
+   font-family: 'Eordeoghlakat';
    font-size: 1.75rem;
+   text-align: end;
 }
-
-.bandcamp-icon {
-   font-family: Helvetica Neue, Arial, sans-serif;
-   text-transform: lowercase;
-   display: flex;
-   align-self: center;
-   font-size: 1.6rem;
-   position: relative;
-   margin-bottom: 0;
-}
-
 .nav-link {
-   color: rgb(0, 0, 0) !important
+   color:rgb(137 35 35) !important;
 }
-
-/* .navbar-expand-lg {
-   padding-right: 9rem;
-} */
-
 .navbar-nav>li>a {
    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -114,6 +86,12 @@ footer {
 .navbar-nav>li>a:active {
    transform: scale(1.2);
 }
+@media (min-width:768px) {
+   .current-page {
+      transform: scale(1.2);
+   }
+}
+
 
 @media (max-width: 768px) {
 
@@ -122,8 +100,13 @@ footer {
       transform: scale(1);
    }
    .navbar {
+      background-color: transparent!important;
       position: fixed;
-      background-color: transparent
+      height: 12vh
+   }
+   #navbar {
+      background: transparent!important;
+
    }
 }
 
@@ -137,76 +120,35 @@ footer {
    .link-icon {
       margin: 5px 5px;
    }
+}
 
-   .logo {
-      max-width: 95vw;
+
+
+#navbar.animate {
+   background-color: rgb(255 255 255 / 93%);
+   transition: background-color 0.5s ease-in-out;
+}
+#navbar {
+   background: url('/images/inksplotches.png') no-repeat;
+   background-position: center 51%;
+   background-size: cover;
+   transition: background-color 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+   #navbarNav{
+      background: linear-gradient(to left, rgb(255 255 255), #ffffffeb, transparent, transparent);
    }
 }
 
-/* Checkout and Store cart items */
-.cart-img {
-   max-height: 60px;
-}
-
-.shorten-name {
-   overflow: hidden;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   max-width: 18em;
-}
-
-.cart-spec {
-   margin: 5px 10px;
-}
-
-.delete-btn {
-   font-size: 7px;
-}
-
-/* Flash Messages */
-.success-flash {
-   display: flex;
-   justify-content: center;
-   position: fixed;
-   bottom: 5.5em;
-   right: 1em;
-   z-index: 10;
-   color: #ffffff;
-   background-color: rgb(0 0 0 / 20%);
-   border-color: transparent;
-}
-
-.error-flash {
-   display: flex;
-   justify-content: center;
-   position: fixed;
-   bottom: 5.5em;
-   right: 1em;
-   z-index: 10;
-   color: #ffffff;
-   background-color: rgb(255 0 0 / 43%);
-   border-color: transparent;
-}
-
-.alert-dismissible {
-   padding-right: 1rem;
-}
-
-
-/* Overlay and Nav animation */
-.navbar.animate {
-   background-color: rgb(255 255 255 / 93%) !important;
-   transition: background-color 0.5s ease-in-out;
-}
-.navbar {
-   background-color: rgb(255, 255, 255) !important;
-   transition: background-color 0.5s ease-in-out;
-}
 .sticky-top {
    top: -18px
 }
 
+
+/* Background images */
 .image-overlay {
+   z-index: -10;
    position: absolute;
    background: rgba(0, 0, 0, 0);
    width: 100%;
@@ -217,6 +159,7 @@ footer {
    transition: all 0.5s ease;
 }
 .image-overlay-2 {
+   z-index: -10;
    position: absolute;
    background: rgba(0, 0, 0, 0);
    width: 100%;
@@ -226,118 +169,55 @@ footer {
    display: flex;
    transition: all 0.5s ease;
 }
-
-/* Page titles */
-.banner {
-   width: 100vw;
-   height: 40vh;
-   color: white;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.image-overlay-2.animate {
+   background: rgb(174 174 174 / 25%)
 }
 
-.banner-text {
-   font-family: barnstormer;
-   color: rgb(255, 249, 195);
-   font-size: 10vw;
-   z-index: 3;
+.background-pic {
+   position: relative;
+   background: url('/images/tattoo.jpg') no-repeat fixed;
+   background-position: center top;
+   background-size: cover;
+   min-height: var(--bannersize);
 }
 
-@media(max-width: 1205px) {
-   /* .banner {
-      height: 75vh;
-   } */
+@media (max-width: 768px) {
+.background-pic {
+   display: none;
 
-   .banner-text {
-      font-size: 14vw;
+}
+
+}
+.background-pic-2 {
+   position: relative;
+   background: url('/images/tattoo-2.jpg') no-repeat fixed;
+   background-position: center top;
+   background-size: cover;
+   min-height: var(--bannersize);
+   animation: fadeInOut 13s cubic-bezier(0, 0, 0.1, 1.0) infinite;
+   /* animation: image 5s ease-in-out infinite; */
+}
+.background-pic-3 {
+   position: relative;
+   background: url('/images/tattooshop.jpg') no-repeat fixed;
+   background-position: center top;
+   background-size: cover;
+   min-height: var(--bannersize);
+   /* animation: image 5s ease-in-out infinite; */
+}
+
+ @keyframes fadeInOut {
+   0%, 100% {
+     opacity: 1;
+   }
+   50% {
+     opacity: 0;
    }
 }
 
-/* Cart Buttton (only active on store page, but part of boilerplate navbar) */
-.cart-circle-container {
-   margin-right: 20px;
-}
+/* Hero image */
 
-.cart-circle {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 4em;
-   height: 4em;
-   background-color: rgb(152, 221, 23, 0.65);
-   border: 4px solid rgb(190, 233, 186);
-   border-radius: 50%;
-   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-}
-
-.cart-circle:hover {
-   background-color: rgb(255, 186, 59, 0.65);
-   border: 4px solid rgb(255, 255, 255);
-}
-
-.cart-text a {
-   font-size: 1em;
-   text-decoration: none;
-   color: white;
-   transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-.cart-text a:hover {
-   transform: scale(1.3);
-   text-decoration: none;
-   color: white;
-}
-
-.cart-circle.active {
-   transform: translateX(-23em);
-   background-color: rgb(255, 186, 59, 0.65);
-   border: 4px solid rgb(255, 255, 255);
-}
-
-.cart-count-circle {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 23px;
-   height: 23px;
-   background-color: rgb(233, 51, 146, 0.75);
-   border: 2px solid rgb(255, 255, 255);
-   border-radius: 50%;
-   position: relative;
-   top: 1.6em;
-   left: 1em;
-   z-index: 5;
-   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-}
-
-.cart-count-circle.active {
-   transform: translateX(-23em);
-}
-
-.cart-count {
-   font-size: 0.8em;
-   font-weight: 500;
-   color: white;
-}
-
-.fa-shopping-cart {
-   color: whitesmoke;
-   position: relative;
-}
-
-.moonshines a {
-   position: relative;
-   z-index: 100;
-   color: rgb(108 117 125) !important;
-   text-decoration: none !important;
-
-}
-
-
-/* Dylan */
-
-.dylanB-container{
+.hero-container{
    display: flex;
    z-index: 100;
    min-width: 100%;
@@ -351,14 +231,67 @@ footer {
    flex-wrap: wrap;
 }
 
-.dylanB {
-   
-   font-family: 'Unica One', cursive;
+.hero {
+   transform: translateY(-42%);
+   font-family: 'Universe';
    text-align: center;
    width: 8em;
    font-size: 11vw;
-   color: red;
+   color: rgb(211 0 0) !important;
 }
+.hero a, .hero a:hover, .hero a:visited, .hero a:active {
+   color: inherit;
+   text-decoration: none;
+   cursor:pointer
+  }
+
+@media(max-width:768px) {
+   .hero {
+      transform: translateY(-8vh);
+   }
+   
+}
+.emblem {
+   width: 46.5vw;
+   position: fixed;
+   left: 40vw;
+   top: 3vw;
+   bottom: -48vw;
+   z-index: -20;
+   opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+   .emblem {
+      display: none;
+      }
+
+}
+
+/* headings */
+
+.page-heading {
+   font-family: Eordeoghlakat;
+   color: rgb(137, 35, 35);
+   margin-bottom: 75px;
+   z-index: 100;
+}
+.heading-emblem {
+   width: 140px;
+   margin: 32px;
+   opacity: 0.7;
+}
+@media (min-width: 768px) {
+   .page-heading {
+      display: none!important;;
+   }
+   .heading-emblem {
+      display: none;
+
+   }
+}
+
+/* body content */
 
 .text-content {
  width: 50%;
@@ -368,44 +301,9 @@ footer {
        width: 85%;
    }
 
-    }
+}
 
-    .background-pic {
-      position: relative;
-      background: url('/images/tattoo.jpg') no-repeat fixed;
-      background-position: center top;
-      background-size: cover;
-      min-height: var(--bannersize);
-  }
-  .background-pic-2 {
-      position: relative;
-      background: url('/images/tattoo-2.jpg') no-repeat fixed;
-      background-position: center top;
-      background-size: cover;
-      min-height: var(--bannersize);
-      animation: fadeInOut 13s cubic-bezier(0, 0, 0.1, 1.0) infinite;
-      /* animation: image 5s ease-in-out infinite; */
-  }
-  
-    @keyframes fadeInOut {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-  }
-  /* @keyframes image {
-      100% {
-        opacity: 0;
-      }
-    } */
-  
-  .image-overlay-2.animate {
-      background: rgb(174 174 174 / 25%)
-  }
-
-  .cube1 {
+.cube1 {
    opacity: 0.9;
    background-color: white;
    font-size: 14px;
@@ -414,3 +312,24 @@ footer {
 .cube1 p{
    margin: 10rem;
 }
+@media screen and (min-width: 576px) and (max-width: 768px) {
+   .cube1 {
+     margin-top: 7vh;
+   }
+ }
+  .cube2 {
+   background-color: white;
+   font-size: 14px;
+   line-height: 250%;
+   
+}
+.cube2 p{
+   margin: 10rem;
+}
+.gallery {
+   z-index: 100;
+   height: 82vh;
+ }
+ .gallery body {
+   overflow: hidden;
+ }

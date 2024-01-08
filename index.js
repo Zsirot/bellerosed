@@ -59,8 +59,9 @@ const scriptSrcUrls = [
     "https://www.instagram.com",
     "http://www.instagram.com",
     "https://static.elfsight.com",
-    "https://static.elfsight.com/platform/platform.js",
-    "https://static.elfsight.com/apps/photo-gallery/stable/97f2d2a41ec2f60b04822013e483491f62445eac/app/photoGallery.js"
+    "*.jotform.com",
+    "*.jotfor.ms",
+    "https://hcaptcha.com"
     
 
 ];
@@ -77,6 +78,8 @@ const styleSrcUrls = [
     "https://www.instagram.com",
     "http://www.instagram.com",
     "http://www.instagram.com/embed.js",
+    "*.jotfor.ms",
+    "*.jotform.com"
 
 ];
 const childSrcUrls = [
@@ -88,8 +91,8 @@ const childSrcUrls = [
     "http://www.instagram.com",
     "https://www.instagram.com/embed.js",
     "https://86441960992e48e9a2d5fcd6ff202f5b.elf.site",
-    "https://form.jotform.com/",
-    "https://submit.jotform.com/"
+    "*.hcaptcha.com",
+    "*.jotform.com"
 ]
 
 const fontSrcUrls = [
@@ -98,6 +101,8 @@ const fontSrcUrls = [
     "https://www.instagram.com",
     "http://www.instagram.com",
     "https://www.instagram.com/embed.js",
+    "*.jotfor.ms",
+    "*.fontawesome.com"
 ];
 
 const imageSrcUrls = [
@@ -110,7 +115,10 @@ const imageSrcUrls = [
     "https://www.instagram.com/embed.js",
     "https://files.elfsight.com",
     "https://files.elfsightcdn.com",
-    "https://unsplash.it"
+    "https://unsplash.it",
+    "https://cdn.jotfor.ms/",
+    "*.jotfor.ms",
+    "*.jotform.com"
 ];
 const frameSrcUrls = [
     "https://widget-app.songkick.com/injector",
@@ -119,7 +127,9 @@ const frameSrcUrls = [
     "http://www.instagram.com"
 ]
 const connectSrcUrls = [
-    "https://core.service.elfsight.com"
+    "https://core.service.elfsight.com",
+    "*.jotform.com",
+    "*.fontawesome.com"
 ]
 
 app.use(
@@ -185,15 +195,18 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/shows', (req, res) => {
-    res.render('shows');
+app.get('/booking', (req, res) => {
+    res.render('booking');
 })
 
-app.get('/music', (req, res) => {
-    res.render('music')
+app.get('/tattoos', (req, res) => {
+    res.render('tattoos')
 })
-app.get('/about', (req, res) => {
-    res.render('about')
+app.get('/designs', (req, res) => {
+    res.render('designs')
+})
+app.get('/paintings', (req, res) => {
+    res.render('paintings')
 })
 
 
