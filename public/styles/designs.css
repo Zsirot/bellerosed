@@ -1,0 +1,16 @@
+.background-pic-3 {
+    background: url('/images/designs-page.jpg') no-repeat fixed;
+    position: relative;
+    background-position: left top;
+    background-size: cover;
+    min-height: var(--bannersize);
+    background-attachment:fixed;
+}
+
+
+@media (max-width:575px) {
+    .background-pic-3 {
+        background-size: 100vh;
+    }
+    
+ }

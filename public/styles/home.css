@@ -2,7 +2,7 @@
    --bannersize: 90vh;
  }
 
- @media (max-width:768px) {
+ @media (max-width:767px) {
     :root {
         --bannersize: 100vh;
       }
@@ -23,57 +23,23 @@ h1 a:hover {
     color: rgb(178, 0, 0);
 }
 
-  
-
-/* Home page links */
-
-
-
-
-.photo-text {
-    color: white;
-}
-
-/* Unused for now, for eventual Biography */
-.spacer {
-    width: 100vw;
-    height: 60vh;
-}
-
-@media(max-width: 1205px) {
-    .spacer {
-        height: 75vh;
+@media (min-width: 767px) {
+    #static-nav {
+        display: none!important;
     }
+    
+}
+#static-nav .nav-item {
+font-size: 1.5rem;
 }
 
-@media(max-width: 992px) {
-    .spacer {
-        height: 0vh;
-    }
-}
-
-.home-icons li {
-    list-style-type: none;
-}
-
-.home-icons>li>a {
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.home-icons>li>a:hover {
-    transform: scale(1.1);
-}
-
-.home-icons>li>a:active {
-    transform: scale(1.2);
-}
-
-/* Dylan */
+/* Artist bio */
 
 .artist-image {
-    max-width: 22rem;
+    max-width: 29rem;
+    border-radius: 2%;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .artist-image {
         width: 85%;
     }
@@ -101,4 +67,23 @@ h1 a:hover {
 }
 .emblem {
     display: block!important;
+}
+.next-slide {
+    position: relative;
+    min-height: 6rem;
+
+}
+
+.carousel-control-next, .carousel-control-prev {
+    color: black;
+    min-width: 30%;
+    font-family: Eordeoghlakat;
+    font-size: 22px;
+    max-height: 20px;
+}
+.carousel-control-prev {
+    display: none;
+}
+.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover  {
+    color: grey!important;
 }

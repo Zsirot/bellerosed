@@ -1,3 +1,10 @@
 .footer-link {
     display:none
 }
+
+@media (max-width:575px) {
+    .background-pic-3 {
+        background-size: 100vh;
+    }
+    
+ }

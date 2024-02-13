@@ -55,3 +55,44 @@ document.addEventListener("DOMContentLoaded", function () {
       cubeElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+
+
+//slideshow hide back button    
+    // Get all elements with class "carousel-control-next" and "carousel-control-prev"
+const nextControls = document.querySelectorAll('.carousel-control-next');
+const prevControls = document.querySelectorAll('.carousel-control-prev');
+
+// Function to handle click on next control
+function handleNextControlClick() {
+    // Hide all elements with class "carousel-control-next"
+    nextControls.forEach(control => {
+        control.style.display = 'none';
+    });
+    // Show all elements with class "carousel-control-prev"
+    prevControls.forEach(control => {
+        control.style.display = 'block';
+    });
+}
+
+// Function to handle click on previous control
+function handlePrevControlClick() {
+    // Hide all elements with class "carousel-control-prev"
+    prevControls.forEach(control => {
+        control.style.display = 'none';
+    });
+    // Show all elements with class "carousel-control-next"
+    nextControls.forEach(control => {
+        control.style.display = 'block';
+    });
+}
+
+// Add click event listener to all elements with class "carousel-control-next"
+nextControls.forEach(control => {
+    control.addEventListener('click', handleNextControlClick);
+});
+
+// Add click event listener to all elements with class "carousel-control-prev"
+prevControls.forEach(control => {
+    control.addEventListener('click', handlePrevControlClick);
+});

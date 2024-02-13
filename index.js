@@ -53,9 +53,7 @@ const scriptSrcUrls = [
     "https://code.jquery.com/jquery-3.6.0.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
     "https://open.spotify.com",
-    "https://widget-app.songkick.com/injector",
     "https://www.instagram.com/embed.js",
-    "https://www.instagram.com/blialcabal/embed",
     "https://www.instagram.com",
     "http://www.instagram.com",
     "https://static.elfsight.com",
@@ -91,6 +89,8 @@ const childSrcUrls = [
     "http://www.instagram.com",
     "https://www.instagram.com/embed.js",
     "https://86441960992e48e9a2d5fcd6ff202f5b.elf.site",
+    "https://3adfbb4617bd4ad49d9ab69c29911534.elf.site",
+    "https://a3ab065c644f44e8bfdfccb86e088c44.elf.site",
     "*.hcaptcha.com",
     "*.jotform.com"
 ]
@@ -109,7 +109,6 @@ const imageSrcUrls = [
     "https://images.unsplash.com",
     "https://i.ytimg.com",
     "https://files.cdn.printful.com",
-    "https://globehall.com",
     "https://www.instagram.com",
     "http://www.instagram.com",
     "https://www.instagram.com/embed.js",
@@ -121,8 +120,6 @@ const imageSrcUrls = [
     "*.jotform.com"
 ];
 const frameSrcUrls = [
-    "https://widget-app.songkick.com/injector",
-    "https://widget-app.songkick.com",
     "https://www.instagram.com",
     "http://www.instagram.com"
 ]
@@ -158,28 +155,6 @@ app.use(
       crossOriginEmbedderPolicy: false,
     })
   );
-  
-
-  
-
-// app.use(
-//     helmet.contentSecurityPolicy({
-//         directives: {
-//             defaultSrc: [
-//             ],
-//             connectSrc: ["'self'"],
-//             scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", "'frame-src'", "'script-src-elem'", ...scriptSrcUrls],
-//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-//             workerSrc: ["'self'", "blob:"],
-//             childSrc: ["blob:", "frame-src", ...childSrcUrls],
-//             objectSrc: [],
-//             imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
-//             fontSrc: ["'self'", ...fontSrcUrls],
-//         },
-
-//     })
-// );
-// app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 
 
 
@@ -207,6 +182,9 @@ app.get('/designs', (req, res) => {
 })
 app.get('/paintings', (req, res) => {
     res.render('paintings')
+})
+app.get('/aftercare', (req, res) => {
+    res.render('aftercare')
 })
 
 

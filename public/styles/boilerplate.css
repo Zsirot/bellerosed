@@ -1,5 +1,9 @@
 :root {
    --bannersize: 30vh;
+   --darkred: rgb(137 35 35);
+   --brightred: rgb(211 0 0);
+   --gold: rgb(218 195 81);
+   --darkgold: rgb(180 165 55);
  }
 
 @font-face {
@@ -41,18 +45,21 @@ body {
 h1 {
    text-align: center;
    font-family: 'Universe';
-   font-size: larger;
    font-size: 50px;
 }
 
 footer {
    background-color: rgb(255, 255, 255);
 }
+.row {
+       --bs-gutter-x: 0!important;
+
+}
 
 .footer-link a{
    font-family: 'Eordeoghlakat';
    font-size: 1.75rem;
-   color:rgb(137 35 35)!important;
+   color:var(--darkgold)!important;
    text-decoration: none;
 }
 
@@ -60,7 +67,7 @@ footer {
 .navbar-toggler:focus {
    box-shadow: none;
 }
-@media (min-width:768px) {
+@media (min-width:767px) {
    .close-nav {
       display: none!important;
    }
@@ -73,7 +80,7 @@ footer {
    text-align: end;
 }
 .nav-link {
-   color:rgb(137 35 35) !important;
+   color:var(--darkgold)!important;
 }
 .navbar-nav>li>a {
    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -86,14 +93,14 @@ footer {
 .navbar-nav>li>a:active {
    transform: scale(1.2);
 }
-@media (min-width:768px) {
+@media (min-width:767px) {
    .current-page {
       transform: scale(1.2);
    }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
    .navbar-nav>li>a:hover,
    .navbar-nav>li>a:active {
@@ -135,7 +142,7 @@ footer {
    transition: background-color 0.5s ease-in-out;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
    #navbarNav{
       background: linear-gradient(to left, rgb(255 255 255), #ffffffeb, transparent, transparent);
    }
@@ -176,12 +183,14 @@ footer {
 .background-pic {
    position: relative;
    background: url('/images/tattoo.jpg') no-repeat fixed;
-   background-position: center top;
+   background-position: center right;
    background-size: cover;
+   background-attachment:scroll;
    min-height: var(--bannersize);
+   filter: grayscale();
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 .background-pic {
    display: none;
 
@@ -193,15 +202,17 @@ footer {
    background: url('/images/tattoo-2.jpg') no-repeat fixed;
    background-position: center top;
    background-size: cover;
+   background-attachment:scroll;
    min-height: var(--bannersize);
    animation: fadeInOut 13s cubic-bezier(0, 0, 0.1, 1.0) infinite;
    /* animation: image 5s ease-in-out infinite; */
 }
 .background-pic-3 {
    position: relative;
-   background: url('/images/tattooshop.jpg') no-repeat fixed;
+   background: url('/images/tattoo-page-2.jpg') no-repeat fixed;
    background-position: center top;
    background-size: cover;
+   background-attachment:scroll;
    min-height: var(--bannersize);
    /* animation: image 5s ease-in-out infinite; */
 }
@@ -227,7 +238,6 @@ footer {
    align-items: center;
    position: absolute;
    top: 56px;
-   left: 12px;
    flex-wrap: wrap;
 }
 
@@ -237,7 +247,7 @@ footer {
    text-align: center;
    width: 8em;
    font-size: 11vw;
-   color: rgb(211 0 0) !important;
+   color:var(--gold)!important;
 }
 .hero a, .hero a:hover, .hero a:visited, .hero a:active {
    color: inherit;
@@ -245,7 +255,7 @@ footer {
    cursor:pointer
   }
 
-@media(max-width:768px) {
+@media(max-width:767px) {
    .hero {
       transform: translateY(-8vh);
    }
@@ -254,14 +264,14 @@ footer {
 .emblem {
    width: 46.5vw;
    position: fixed;
-   left: 40vw;
-   top: 3vw;
+   left: 22vw;
+   top: -18vw;
    bottom: -48vw;
    z-index: -20;
    opacity: 0.2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
    .emblem {
       display: none;
       }
@@ -272,7 +282,7 @@ footer {
 
 .page-heading {
    font-family: Eordeoghlakat;
-   color: rgb(137, 35, 35);
+   color: var(--darkgold);
    margin-bottom: 75px;
    z-index: 100;
 }
@@ -281,7 +291,7 @@ footer {
    margin: 32px;
    opacity: 0.7;
 }
-@media (min-width: 768px) {
+@media (min-width: 767px) {
    .page-heading {
       display: none!important;;
    }
@@ -296,7 +306,7 @@ footer {
 .text-content {
  width: 50%;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
    .text-content {
        width: 85%;
    }
@@ -304,20 +314,22 @@ footer {
 }
 
 .cube1 {
+   z-index: 100;
    opacity: 0.9;
    background-color: white;
-   font-size: 14px;
+   font-size: 13px;
    line-height: 250%;
 }
 .cube1 p{
    margin: 10rem;
 }
-@media screen and (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 767px) {
    .cube1 {
      margin-top: 7vh;
    }
  }
   .cube2 {
+   z-index: 100;
    background-color: white;
    font-size: 14px;
    line-height: 250%;
