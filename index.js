@@ -53,14 +53,6 @@ const scriptSrcUrls = [
     "https://code.jquery.com/jquery-3.6.0.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
     "https://open.spotify.com",
-    "https://www.instagram.com/embed.js",
-    "https://www.instagram.com",
-    "http://www.instagram.com",
-    "https://static.elfsight.com",
-    "*.jotform.com",
-    "*.jotfor.ms",
-    "https://hcaptcha.com"
-    
 
 ];
 const styleSrcUrls = [
@@ -128,34 +120,41 @@ const connectSrcUrls = [
     "*.jotform.com",
     "*.fontawesome.com"
 ]
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: [
+//             ],
+//             connectSrc: ["'self'"],
+//             scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
+//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//             workerSrc: ["'self'", "blob:"],
+//             childSrc: ["blob:", ...childSrcUrls],
+//             objectSrc: [],
+//             imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+//             fontSrc: ["'self'", ...fontSrcUrls],
+//         },
+//     })
+// );
 
 app.use(
-    helmet({
-      contentSecurityPolicy: { directives: {
-        defaultSrc: [
-        ],
-        connectSrc: ["'self'", ...connectSrcUrls],
-        scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
-        styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-        workerSrc: ["'self'", "blob:"],
-        childSrc: ["blob:", ...childSrcUrls],
-        objectSrc: [],
-        imgSrc: [
-            "'self'",
-            "blob:",
-            "data:",
-            "https://images.unsplash.com",
-            "https://i.ytimg.com",
-            ...imageSrcUrls
-        ],
-        fontSrc: ["'self'", ...fontSrcUrls],
-    }  
-      },
-      crossOriginResourcePolicy: { policy: "cross-origin" },
-      crossOriginEmbedderPolicy: false,
-    })
-  );
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [
+            ],
+            connectSrc: ["'self'"],
+            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", "'frame-src'", "'script-src-elem'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            childSrc: ["blob:", "frame-src", ...childSrcUrls],
+            objectSrc: [],
+            imgSrc: ["'self'", "blob:", "data:", ...imageSrcUrls],
+            fontSrc: ["'self'", ...fontSrcUrls],
+        },
 
+    })
+);
+app.use(helmet({ crossOriginResourcePolicy: { policy: "same-site" } }));
 
 
 app.use((req, res, next) => {
