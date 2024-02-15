@@ -182,7 +182,7 @@ footer {
 
 .background-pic {
    position: relative;
-   background: url('/images/tattoo.jpg') no-repeat fixed;
+   background: url('../images/tattoo.jpg') no-repeat fixed;
    background-position: center right;
    background-size: cover;
    background-attachment:scroll;
@@ -199,7 +199,7 @@ footer {
 }
 .background-pic-2 {
    position: relative;
-   background: url('/images/tattoo-2.jpg') no-repeat fixed;
+   background: url('../images/tattoo-2.jpg') no-repeat fixed;
    background-position: center top;
    background-size: cover;
    background-attachment:scroll;
@@ -209,7 +209,7 @@ footer {
 }
 .background-pic-3 {
    position: relative;
-   background: url('/images/tattoo-page-2.jpg') no-repeat fixed;
+   background: url('../images/tattoo-page-2.jpg') no-repeat fixed;
    background-position: center top;
    background-size: cover;
    background-attachment:scroll;

@@ -1,5 +1,5 @@
 .background-pic-3 {
-    background: url('/images/designs-page.jpg') no-repeat fixed;
+    background: url('../images/designs-page.jpg') no-repeat fixed;
     position: relative;
     background-position: left top;
     background-size: cover;
