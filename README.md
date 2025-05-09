@@ -1,4 +1,4 @@
-# Belle Rose Tattoo & Art Studio
+# Bellerose Tattoo & Art Studio
 
 A professional website for Bellerosed Tattoo & Art Studio, showcasing tattoo designs, paintings, and booking services.
 
